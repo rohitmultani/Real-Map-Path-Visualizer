@@ -148,13 +148,13 @@ const Map = () => {
           }
           attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        <Marker draggable={true} eventHandlers={startEventHandlers} position={startPoint} ref={startMarkerRef} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
+        <Marker draggable={true} eventHandlers={startEventHandlers} position={startPoint} ref={startMarkerRef} icon={new Icon({iconUrl: markerIconPng,iconAnchor : [10, 35]})}>
           <Popup>
             <p>Latitude : {startPoint[0]}</p>
             <p>Longitude : {startPoint[1]}</p>
           </Popup>
         </Marker>
-        <Marker draggable={true} eventHandlers={endEventHandlers} position={endPoint} ref={endMarkerRef} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
+        <Marker draggable={true} eventHandlers={endEventHandlers} position={endPoint} ref={endMarkerRef} icon={new Icon({iconUrl: markerIconPng,iconAnchor : [10, 35] })}>
           <Popup>
             <p>Latitude : {endPoint[0]}</p>
             <p>Longitude : {endPoint[1]}</p>

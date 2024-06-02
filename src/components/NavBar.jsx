@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { useVisualizerContext} from '../context/VisualizerContext';
 import { FaMoon, FaSun , FaBars} from 'react-icons/fa';
+
 import useCounter from './useCounter'; // Adjust the import path as necessary
 
 const NavBar = () => {
@@ -37,10 +38,15 @@ const NavBar = () => {
 
  async function fetchData(){
   const [nodesJson,edgesJson] =  await Promise.all([
-        fetch(`../../Data/${city}/nodes.json`),
-        fetch(`../../Data/${city}/edges.json`),
+        fetch(`../src/Data/${city}/nodes.json`,{
+        headers: {
+          "Content-Type": "application/json",
+        }}),
+        fetch(`../src/Data/${city}/edges.json`,{
+          headers: {
+            "Content-Type": "application/json",
+          }})
       ]);
-  
   const nodes = await nodesJson.json();
   const edges = await edgesJson.json();
   return [nodes,edges];
