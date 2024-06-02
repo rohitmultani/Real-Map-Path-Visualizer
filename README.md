@@ -64,6 +64,6 @@ Follow these steps to run the project on your local machine:
 1. Select Algorithm: Choose an algorithm from the dropdown menu in the navigation bar.
 2. Adjust Speed: Select the visualization speed from the speed dropdown menu.
 3. Visualize: Click the "Visualize" button to start the algorithm visualization.
-4. Clear Board: Click the "Clear Board" button to reset the grid.
-5. Drag Start/End Points: Drag the red play icon (start point) and the green flag (end point) to set new positions.
-6. Add Obstacles: Click on any cell to toggle an obstacle (hurdle) on or off.
+4. Clear Board: Click the "Clear Board" button to reset the Map.
+5. Drag Start/End Points: Drag the marker, to set start and end point.
+
