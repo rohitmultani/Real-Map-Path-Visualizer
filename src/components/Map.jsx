@@ -8,6 +8,8 @@ import {
   ZoomControl
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import markerIconPng from "leaflet/dist/images/marker-icon.png"
+import {Icon} from 'leaflet'
 import { useVisualizerContext } from "../context/VisualizerContext";
 import AnimatedPolyline from "./AnimatedPolyline.jsx";
 import { findShortestPathWithAnimation } from "../Algorithms/Dijkstra.jsx";
@@ -146,13 +148,13 @@ const Map = () => {
           }
           attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        <Marker draggable={true} eventHandlers={startEventHandlers} position={startPoint} ref={startMarkerRef}>
+        <Marker draggable={true} eventHandlers={startEventHandlers} position={startPoint} ref={startMarkerRef} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
           <Popup>
             <p>Latitude : {startPoint[0]}</p>
             <p>Longitude : {startPoint[1]}</p>
           </Popup>
         </Marker>
-        <Marker draggable={true} eventHandlers={endEventHandlers} position={endPoint} ref={endMarkerRef}>
+        <Marker draggable={true} eventHandlers={endEventHandlers} position={endPoint} ref={endMarkerRef} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
           <Popup>
             <p>Latitude : {endPoint[0]}</p>
             <p>Longitude : {endPoint[1]}</p>
