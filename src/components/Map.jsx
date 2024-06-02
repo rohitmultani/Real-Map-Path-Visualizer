@@ -170,7 +170,6 @@ const Map = () => {
         {visitedAnimationComplete && pathPositions.length > 0 && (
           <AnimatedPolyline positions={pathPositions} color="red" />
         )}
-        <ZoomControl position="bottomleft" />
       </MapContainer>
     </>
   );
