@@ -81,14 +81,14 @@ useEffect(() => {
 
   return (
     <>
-    <div className={`fixed top-0 left-0 z-[10000] transition-transform transform ${drawerOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 bg-gray-800 text-white p-4 w-64 md:w-auto h-full md:h-auto md:relative md:flex md:flex-row md:justify-between md:items-center`}>
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+    <div className={`fixed top-0 left-0 z-[10000] transition-transform transform ${drawerOpen ? 'translate-x-0' : '-translate-x-full'}  bg-gray-800 text-white p-4 w-64  h-full `}>
+      <div className="container mx-auto flex flex-col justify-between items-center space-y-4">
         <div className="text-xl font-bold text-center">
           Path Visualizer
         </div>
         <div id="visited" className="text-sm mt-1">Total Distance Covered: {animatedNodeVisited} KM</div>
         <div id="short" className="text-sm mt-1"> Shortest Distance: {animatedShortestNodes} KM</div>
-        <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+        <div className="flex flex-col  items-center space-y-4 ">
           <div className="relative text-center" id="algo">
             <span className="block md:inline-block mr-2">Select Algorithm</span>
             <select
@@ -102,7 +102,7 @@ useEffect(() => {
               <option value="DFS">DFS</option>
             </select>
           </div>
-          <div className="relative text-center" id="speed">
+          <div className="relative text-center" id="city">
             <span className="block md:inline-block mr-2">City</span>
             <select
               value={city}
@@ -115,10 +115,10 @@ useEffect(() => {
               <option value="Jaipur">Jaipur</option>
             </select>
           </div>
-          <button id="visualize" className="bg-green-500 p-2 rounded hover:bg-green-600 w-full md:w-auto text-center" onClick={handleVisualize}>
+          <button id="visualize" className="bg-green-500 p-2 rounded hover:bg-green-600 w-full  text-center" onClick={handleVisualize}>
             Visualize
           </button>
-          <button id="clear" className="relative group bg-red-500 p-2 rounded hover:bg-red-600 w-full md:w-auto text-center disabled:bg-red-300 disabled:hover:bg-red-300 disabled:cursor-not-allowed"
+          <button id="clear" className="relative group bg-red-500 p-2 rounded hover:bg-red-600 w-full  text-center disabled:bg-red-300 disabled:hover:bg-red-300 disabled:cursor-not-allowed"
             onClick={handleClearBoard}
             // disabled={visualizing}.
             >
@@ -131,7 +131,8 @@ useEffect(() => {
       </div>
     </div>
     <button
-    className="fixed top-4 right-4 z-[1000] bg-gray-700 p-3 rounded-full shadow-lg md:hidden"
+    id="open"
+    className="fixed top-4 right-4 z-[1000] bg-gray-700 p-3 rounded-full shadow-lg"
     onClick={handleToggleDrawer}
   >
     <FaBars className="text-white" />

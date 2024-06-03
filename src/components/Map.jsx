@@ -152,7 +152,7 @@ const Map = () => {
   );
 
   return (
-    <>
+    <><NavBar />
       <MapContainer
         center={mapCenter}
         zoom={12.5}
@@ -160,7 +160,7 @@ const Map = () => {
         zoomControl={false}
       >
         <FlyMapTo />
-        <NavBar />
+        
         <TileLayer
           url={
             darkMode
@@ -176,6 +176,7 @@ const Map = () => {
           ref={startMarkerRef}
           icon={
             new Icon({
+              id:"start",
               iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png`,
               iconAnchor: [10, 35],
               popupAnchor: [3, 3],
@@ -194,6 +195,7 @@ const Map = () => {
           ref={endMarkerRef}
           icon={
             new Icon({
+              id:"end",
               iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png`,
               iconAnchor: [10, 35],
               popupAnchor: [3, 3],
