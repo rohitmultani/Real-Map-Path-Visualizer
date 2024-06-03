@@ -42,7 +42,6 @@ export const findNearestNode = (pos,nodesData) => {
     return node ? [node.lat, node.lon] : null;
   };
  export const getNodeIdfromPostion = (pos,nodesData) => {
-    console.log(pos);
     const node = nodesData.find((n) => n.lat === pos[0] && n.lon === pos[1]);
     return node ? node.id : null;
   };

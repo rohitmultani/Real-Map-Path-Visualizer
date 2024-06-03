@@ -52,7 +52,6 @@ let d = 0;
         curr = prev[curr];
       }
       const shortDist = distances[end];
-      console.log(shortDist)
       return { path: path.reverse(), visitedNodes,shortDist,d}; // Return both path and visited nodes
     }
 

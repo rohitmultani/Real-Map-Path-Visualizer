@@ -5,18 +5,23 @@ import {
   Marker,
   useMap,
   Popup,
-  ZoomControl
+  ZoomControl,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import markerIconPng from "leaflet/dist/images/marker-icon.png"
-import {Icon} from 'leaflet'
+import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import { Icon } from "leaflet";
 import { useVisualizerContext } from "../context/VisualizerContext";
 import AnimatedPolyline from "./AnimatedPolyline.jsx";
 import { findShortestPathWithAnimation } from "../Algorithms/Dijkstra.jsx";
 import { AStarSearch } from "../Algorithms/AStar.jsx";
 import { bfs } from "../Algorithms/BFS.jsx";
 import { dfs } from "../Algorithms/DFS.jsx";
-import { createGraph, getNodeIdfromPostion, getPositionFromNodeId, findNearestNode } from "./Helper.jsx";
+import {
+  createGraph,
+  getNodeIdfromPostion,
+  getPositionFromNodeId,
+  findNearestNode,
+} from "./Helper.jsx";
 import NavBar from "./NavBar";
 
 const Map = () => {
@@ -38,7 +43,8 @@ const Map = () => {
 
   const [pathPositions, setPathPositions] = useState([]);
   const [visitedPositions, setVisitedPositions] = useState([]);
-  const [visitedAnimationComplete, setVisitedAnimationComplete] = useState(false);
+  const [visitedAnimationComplete, setVisitedAnimationComplete] =
+    useState(false);
 
   const startMarkerRef = useRef(startPoint);
   const endMarkerRef = useRef(endPoint);
@@ -53,7 +59,12 @@ const Map = () => {
 
     switch (algorithm) {
       case "Dijkstra":
-        result = findShortestPathWithAnimation(graph, nodeIdStart, nodeIdEnd, 1);
+        result = findShortestPathWithAnimation(
+          graph,
+          nodeIdStart,
+          nodeIdEnd,
+          1
+        );
         break;
       case "A*":
         result = AStarSearch(graph, nodeIdStart, nodeIdEnd, 1);
@@ -74,7 +85,9 @@ const Map = () => {
     setShortestNodes(shortDist.toFixed(2));
 
     if (path.length > 0) {
-      const pathPositions = path.map((nodeId) => getPositionFromNodeId(nodeId, nodesData)).filter((pos) => pos !== null);
+      const pathPositions = path
+        .map((nodeId) => getPositionFromNodeId(nodeId, nodesData))
+        .filter((pos) => pos !== null);
       setPathPositions(pathPositions);
     } else {
       window.alert("Path not Found");
@@ -82,7 +95,10 @@ const Map = () => {
 
     if (visitedNodes.length > 0) {
       const visitedPositions = visitedNodes
-        .map(([parent, child]) => [getPositionFromNodeId(parent, nodesData), getPositionFromNodeId(child, nodesData)])
+        .map(([parent, child]) => [
+          getPositionFromNodeId(parent, nodesData),
+          getPositionFromNodeId(child, nodesData),
+        ])
         .filter((pair) => pair[0] !== null && pair[1] !== null);
       setVisitedPositions(visitedPositions);
     }
@@ -137,7 +153,12 @@ const Map = () => {
 
   return (
     <>
-      <MapContainer center={mapCenter} zoom={15} className="w-full h-screen" zoomControl={false}>
+      <MapContainer
+        center={mapCenter}
+        zoom={12.5}
+        className="w-full h-screen"
+        zoomControl={false}
+      >
         <FlyMapTo />
         <NavBar />
         <TileLayer
@@ -148,13 +169,37 @@ const Map = () => {
           }
           attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        <Marker draggable={true} eventHandlers={startEventHandlers} position={startPoint} ref={startMarkerRef} icon={new Icon({iconUrl: markerIconPng,iconAnchor : [10, 35],popupAnchor : [3, 3]})}>
+        <Marker
+          draggable={true}
+          ev  entHandlers={startEventHandlers}
+          position={startPoint}
+          ref={startMarkerRef}
+          icon={
+            new Icon({
+              iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png`,
+              iconAnchor: [10, 35],
+              popupAnchor: [3, 3],
+            })
+          }
+        >
           <Popup>
             <p>Latitude : {startPoint[0]}</p>
             <p>Longitude : {startPoint[1]}</p>
           </Popup>
         </Marker>
-        <Marker draggable={true} eventHandlers={endEventHandlers} position={endPoint} ref={endMarkerRef} icon={new Icon({iconUrl: markerIconPng,iconAnchor : [10, 35],popupAnchor : [3, 3]})}>
+        <Marker
+          draggable={true}
+          eventHandlers={endEventHandlers}
+          position={endPoint}
+          ref={endMarkerRef}
+          icon={
+            new Icon({
+              iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png`,
+              iconAnchor: [10, 35],
+              popupAnchor: [3, 3],
+            })
+          }
+        >
           <Popup>
             <p>Latitude : {endPoint[0]}</p>
             <p>Longitude : {endPoint[1]}</p>

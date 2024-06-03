@@ -65,6 +65,7 @@ useEffect(() => {
 
   const handleVisualize = () => {
     setVisualizing(!visualizing);
+    setDrawerOpen(!drawerOpen);
   };
 
   const handleClearBoard = () => {
