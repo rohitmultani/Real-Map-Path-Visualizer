@@ -124,9 +124,7 @@ useEffect(() => {
             >
             Clear Map
           </button>
-          <button id="toggle-dark-mode" className="bg-gray-700 p-2 rounded hover:bg-gray-600 md:w-auto text-center" onClick={handleDarkMode}>
-            {darkMode ? <FaSun className="text-yellow-500" /> : <FaMoon />}
-          </button>
+          
         </div>
       </div>
     </div>
@@ -135,8 +133,12 @@ useEffect(() => {
     className="fixed top-4 right-4 z-[1000] bg-gray-700 p-3 rounded-full shadow-lg"
     onClick={handleToggleDrawer}
   >
+    
     <FaBars className="text-white" />
   </button>
+  <button id="toggle-dark-mode" className="fixed top-20 right-4 z-[1000] bg-gray-700 p-3 rounded hover:bg-gray-600 text-center" onClick={handleDarkMode}>
+            {darkMode ? <FaSun className="text-yellow-500" /> : <FaMoon />}
+          </button>
   </>
   );
 };
