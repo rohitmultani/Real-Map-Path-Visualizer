@@ -10,7 +10,7 @@ const Intro = () => {
       steps:[
         {
             element:"#map",
-            intro:"Welcome to the Real World Path Visualizer! Rohit Multani Welcomes You to Our Project, Dedicated to Calculating the Shortest Distances and Visualizing Optimal Paths in Real-World Scenarios. Join Us in Navigating the Most Efficient Routes and Enhancing Your Understanding of Spatial Navigation."
+            intro:"Welcome to the Real World Path Visualizer! Rohit Multani Welcomes You to his Project, Dedicated to Calculating the Shortest Distances and Visualizing Optimal Paths in Real-World Scenarios. Join him in Navigating the Most Efficient Routes and Enhancing Your Understanding of Spatial Navigation."
         },
         {
             element: "#open",
