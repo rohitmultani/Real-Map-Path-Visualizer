@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
-import nodes from "../Data/Agra/nodes.json"
-import edges from "../Data/Agra/edges.json"
+import nodes from "/public/Data/Agra/nodes.json"
+import edges from "/public/Data/Agra/edges.json"
 const VisualizerContext = createContext();
 const getPositionFromNodeId = (nodeId) => {
   const node = nodes.find((n) => n.id === nodeId);

@@ -38,11 +38,11 @@ const NavBar = () => {
 
  async function fetchData(){
   const [nodesJson,edgesJson] =  await Promise.all([
-        fetch(`../src/Data/${city}/nodes.json`,{
+        fetch(`/Data/${city}/nodes.json`,{
         headers: {
           "Content-Type": "application/json",
         }}),
-        fetch(`../src/Data/${city}/edges.json`,{
+        fetch(`/Data/${city}/edges.json`,{
           headers: {
             "Content-Type": "application/json",
           }})
