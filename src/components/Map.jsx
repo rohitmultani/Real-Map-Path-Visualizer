@@ -39,6 +39,7 @@ const Map = () => {
     nodesData,
     edgesData,
     mapCenter,
+    setMapCenter
   } = useVisualizerContext();
 
   const [pathPositions, setPathPositions] = useState([]);
@@ -150,6 +151,11 @@ const Map = () => {
     }),
     [nodesData]
   );
+
+  useEffect(()=>{
+    console.log(startPoint)
+setMapCenter([(startPoint[0]+endPoint[0])/2,(startPoint[1]+endPoint[1])/2])
+  },[startPoint,endPoint])
 
   return (
     <><NavBar />
