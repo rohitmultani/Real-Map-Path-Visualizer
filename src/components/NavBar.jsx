@@ -84,7 +84,7 @@ useEffect(() => {
     <div className={`fixed top-0 left-0 z-[10000] transition-transform transform ${drawerOpen ? 'translate-x-0' : '-translate-x-full'}  bg-gray-800 text-white p-4 w-64  h-full `}>
       <div className="container mx-auto flex flex-col justify-between items-center space-y-4">
         <div className="text-xl font-bold text-center">
-          Path Visualizer
+        UrbanRoute Explorer
         </div>
         <div id="visited" className="text-sm mt-1">Total Distance Covered: {animatedNodeVisited} KM</div>
         <div id="short" className="text-sm mt-1"> Shortest Distance: {animatedShortestNodes} KM</div>
