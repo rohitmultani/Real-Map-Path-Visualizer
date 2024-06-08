@@ -171,7 +171,7 @@ const Map = () => {
         />
         <Marker
           draggable={true}
-          ev  entHandlers={startEventHandlers}
+          eventHandlers={startEventHandlers}
           position={startPoint}
           ref={startMarkerRef}
           icon={
